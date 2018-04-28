@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable
-  belongs_to :questionnaire, optional: true
+  has_many :questionnaires
   belongs_to :group, optional: true
 
 end
