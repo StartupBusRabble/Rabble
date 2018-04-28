@@ -1,8 +1,23 @@
-<h3>Welcome <%= current_user.email %> </h3>
+<% if current_user && current_user.matched %>
+  <h3>Welcome <%= current_user.email %> You've been grouped! </h3>
 
-<div class="row">
- <div class="col-md-8">
-   <div id="messages"></div>
-   <input id="chat-input" class="form-control" type="text" placeholder="say anything" autofocus/>
- </div>
-</div>
+  <h4>Your group</h4>
+  <% @matchedUsers.each do |user| %>
+  <table>
+    <tbody>
+    <tr>
+      <td><%= user.email %></td>
+    </tr>
+    </tbody>
+  </table>
+  <% end %>
+
+  <div class="row">
+   <div class="col-md-8">
+     <div id="messages"></div>
+     <input id="chat-input" class="form-control" type="text" placeholder="say anything" autofocus/>
+   </div>
+  </div>
+<% else %>
+  <h3>We're still working to find your new friends...hang tight!</h3>
+<% end %>

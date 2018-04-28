@@ -8,7 +8,7 @@ $(document).ready(function() {
 
     function setupChannel() {
         chatChannel.join().catch(function(err) {
-          console.error("Failed to join channel because " + err);
+          console.error("Failed to join channel " + chatChannel.uniqueName + " because " + err);
         });
         chatChannel.getMessages().then(function(messages) {
           for (i=0; i<messages.items.length; i++) {
