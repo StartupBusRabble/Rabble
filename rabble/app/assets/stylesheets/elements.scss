@@ -1,0 +1,28 @@
+.container {
+    background-color: #FFFDF0;
+    .navbar {
+      .navbar-brand {
+        width: 100%;
+        margin-right: 0px;
+      }
+    }
+
+    #new-friends-are-hard {
+      height: 8%;
+      color: #581E07;
+      font-family: Roboto;
+      font-size: 20px;
+      line-height: 24px;
+      text-align: center;
+    }
+
+    .yellow-button {
+      height: 46px;
+      width: 100%;
+      background-color: #FFAC03;
+    }
+
+    .shared-links {
+      padding-top: 122px;
+    }
+}
