@@ -9,13 +9,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def show
-    if valid_page?
-       render "application/#{params[:page]}"
-     else
-       render file: "public/404.html", status: :not_found
-     end
-  end
+  # def show
+  #   if valid_page?
+  #      render "application/#{params[:page]}"
+  #    else
+  #      render file: "public/404.html", status: :not_found
+  #    end
+  # end
 
   private
   def valid_page?
