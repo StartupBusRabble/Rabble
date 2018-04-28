@@ -1,4 +1,4 @@
 class Questionnaire < ApplicationRecord
-  has_many :users
+  belongs_to :users
   has_many :questions
 end
