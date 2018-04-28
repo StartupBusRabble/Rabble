@@ -1,0 +1,196 @@
+<h2>
+  <%= @second_personal_questionnaire.name %>
+</h2>
+
+<div class="form-group">
+  <label for="gender">
+    Gender
+  </label>
+  <select class="form-control" id="gender_select" name="gender">
+    <option value="female">Female</option>
+    <option value="male">Male</option>
+    <option value="gender_fluid">Gender Fluid</option>
+    <option value="nonbinary">Nonbinary</option>
+    <option value="agender">Agender</option>
+    <option value="transgender">Transgender</option>
+    <option value="decline_to_answer">Decline to answer</option>
+  </select>
+</div>
+
+<div class="form-group">
+  <label for="sexual_orientation">
+    Sexual Orientation
+  </label>
+  <select class="form-control" id="sexual_orientation_select" name="sexual_orientation">
+    <option value="asexual">Asexual</option>
+    <option value="bisexual">Bisexual</option>
+    <option value="gay_lesbian">Gay/Lesbian</option>
+    <option value="heterosexual">Heterosexual</option>
+    <option value="pansexual">Pansexual</option>
+    <option value="other">Other</option>
+    <option value="decline_to_answer">Decline to answer</option>
+  </select>
+</div>
+
+<div class="form-group">
+  <label for="education">
+    Level of education
+  </label>
+  <select class="form-control" id="education_select" name="education">
+    <option value="less_than_hs">Less than high school diploma</option>
+    <option value="high_school">High School diploma</option>
+    <option value="certificate">Certificate</option>
+    <option value="associate">Associate’s degree</option>
+    <option value="bachelor">Bachelor’s degree</option>
+    <option value="graduate">Graduate degree</option>
+    <option value="doctorate">Doctorate</option>
+    <option value="professional">Professional Degree</option>
+    <option value="decline_to_answer">Decline to answer</option>
+  </select>
+</div>
+
+<div class="form-group">
+  <label for="occupation">
+    What field do you work in?
+  </label>
+  <select class="form-control" id="occupation_select" name="occupation">
+    <option value="architecture_planning_environmental_design">Architecture, Planning & Environmental Design</option>
+    <option value="arts_entertainment">Arts & Entertainment</option>
+    <option value="business">Business</option>
+    <option value="communications">Communications</option>
+    <option value="education">Education</option>
+    <option value="engineering_computer_science">Engineering & Computer Science</option>
+    <option value="environment">Environment</option>
+    <option value="government">Government</option>
+    <option value="health_medicine">Health & Medicine</option>
+    <option value="international">International</option>
+    <option value="law_public_policy">Law & Public Policy</option>
+    <option value="nonprofit">Nonprofit</option>
+    <option value="sciences">Sciences: Biological and Physical</option>
+    <option value="other">Other</option>
+  </select>
+</div>
+
+<div class="form-group">
+  <label for="political_views">
+    Political views:
+  </label>
+  <select class="form-control" id="political_views_select" name="political_views">
+    <option value="democrat_liberal">Democrat/Liberal</option>
+    <option value="moderate">Moderate</option>
+    <option value="republican_conservative">Republican/Conservative</option>
+    <option value="other">Other</option>
+    <option value="decline_to_answer">Decline to answer</option>
+  </select>
+</div>
+
+<div id="sexual_orientation">
+  <label for="sexual_orientation">
+    Interests
+  </label>
+  <div class="form-check">
+    <input name="interests" class="form-check-input" type="checkbox" id="_checkbox" value="">
+    <label class="form-check-label" for=""></label>
+  </div>
+</div>
+
+<div id="other_languages" class="row">
+  <label for="other_languages">
+    Are you fluent in, or currently learning, any other languages besides English? Please mark them below
+  </label>
+  <% @available_languages.each_with_index do |language, index| %>
+    <div class="form-check col-xs-6 col-md-4">
+      <input class="form-check-input" name="languages" type="checkbox" id="<%= language %>_checkbox" value="<%= language %>">
+      <label class="form-check-label" for="<%= language %>"><%= language %></label>
+    </div>
+  <% end %>
+</div>
+
+<div id="budget" class="row">
+  <label for="budget">
+    What’s your budget for social activities in a typical week?
+  </label>
+  <div class="input-group mb-2 mr-sm-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">$</div>
+    </div>
+    <input type="integer" name="budget" class="form-control" id="budget_input" placeholder="Budget">
+  </div>
+</div>
+
+<!-- <div id="level_of_education">
+  <label for="Level_of_education">
+    Level of education
+  </label>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="less_than_highschool_checkbox" value="Asexual">
+    <label class="form-check-label" for="less_than_highschool">Less than high school diploma</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="high_school_diploma_checkbox" value="Bisexual">
+    <label class="form-check-label" for="high_school_diploma">High School diploma</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="Certificate_checkbox" value="Certificate">
+    <label class="form-check-label" for="Certificate_lesbian">Certificate</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="associate_checkbox" value="Associate">
+    <label class="form-check-label" for="associate_degree">Associate’s degree</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="bachelor_checkbox" value="Bachelor">
+    <label class="form-check-label" for="bachelor_degree">Bachelor’s degree</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="graduate_checkbox" value="Graduate">
+    <label class="form-check-label" for="graduate_degree">Graduate degree</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="doctorate_checkbox" value="Graduate">
+    <label class="form-check-label" for="doctorate_degree">Doctorate degree</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="professional_checkbox" value="professional_degree">
+    <label class="form-check-label" for="professional_degree">Professional Degree</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="no_answer_education" value="no_answer_education">
+    <label class="form-check-label" for="professional_degree">Decline to answer</label>
+  </div>
+</div>
+ -->
+<!-- <div id="sexual_orientation">
+  <label for="sexual_orientation">
+    Sexual orientation
+  </label>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="asexual_checkbox" value="Asexual">
+    <label class="form-check-label" for="asexual">Asexual</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="bisexual_checkbox" value="Bisexual">
+    <label class="form-check-label" for="bisexual">Bisexual</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="gay_lesbian_checkbox" value="Gay/Lesbian">
+    <label class="form-check-label" for="gay_lesbian">Gay/Lesbian</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="heterosexual_checkbox" value="Heterosexual">
+    <label class="form-check-label" for="inlineCheckbox3">Heterosexual</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="pansexual_checkbox" value="Pansexual">
+    <label class="form-check-label" for="inlineCheckbox3">Pansexual</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="other_checkbox" value="Other">
+    <label class="form-check-label" for="inlineCheckbox3">Other</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="no_answer_sexual_orientation" value="Decline to answer">
+    <label class="form-check-label" for="Decline_to_answer">Decline to answer</label>
+  </div>
+</div> -->
+
