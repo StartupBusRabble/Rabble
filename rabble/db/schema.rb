@@ -10,12 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180428164216) do
+ActiveRecord::Schema.define(version: 20180428200607) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "text",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "chat_name"
   end
 
   create_table "questionnaires", force: :cascade do |t|
@@ -47,7 +51,9 @@ ActiveRecord::Schema.define(version: 20180428164216) do
     t.datetime "updated_at",                              null: false
     t.boolean  "is_user_ready_for_match", default: false, null: false
     t.boolean  "matched",                 default: false, null: false
+    t.integer  "groups_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["groups_id"], name: "index_users_on_groups_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
