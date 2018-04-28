@@ -38,6 +38,11 @@ gem 'jbuilder', '~> 2.5'
 # Add devise for login
 gem 'devise'
 
+# for interacting with twilio
+gem 'twilio-ruby'
+# for managing environment variables
+gem 'envyable'
+
 # Add bootstrap 4
 gem 'bootstrap', '~> 4.1.0'
 
