@@ -2,7 +2,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def index
-    render "index.html"
+    if (current_user && !current_user.is_user_ready_for_match)
+      redirect_to questionnaire_index_url
+    else
+      render "index.html"
+    end
   end
 
   def show
