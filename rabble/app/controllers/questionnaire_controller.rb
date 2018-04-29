@@ -43,6 +43,13 @@ class QuestionnaireController < ApplicationController
       store_question_and_answer(questionnaire, "Interests", params[:interests])
       store_question_and_answer(questionnaire, "Languages", params[:languages])
       store_question_and_answer(questionnaire, "Budget per week", params[:budget])
+
+      # Meyers briggs
+      store_question_and_answer(questionnaire, "I enjoy", params[:i_enjoy])
+      store_question_and_answer(questionnaire, "I prefer", params[:i_prefer])
+      store_question_and_answer(questionnaire, "I make decisions using", params[:i_make_decisiongs_using])
+      store_question_and_answer(questionnaire, "I would rather", params[:i_would_rather])
+
       current_user.update(is_user_ready_for_match: true)
       redirect_to root_url
     else
