@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180429010118) do
+ActiveRecord::Schema.define(version: 20180429234240) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "text",        null: false
@@ -18,6 +18,13 @@ ActiveRecord::Schema.define(version: 20180429010118) do
     t.datetime "updated_at",  null: false
     t.integer  "question_id"
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "compatibility_scores", force: :cascade do |t|
+    t.integer "score"
+    t.integer "user_id"
+    t.integer "compared_user"
+    t.index ["user_id"], name: "index_compatibility_scores_on_user_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -64,6 +71,8 @@ ActiveRecord::Schema.define(version: 20180429010118) do
     t.boolean  "is_user_ready_for_match", default: false, null: false
     t.boolean  "matched",                 default: false, null: false
     t.integer  "groups_id"
+    t.integer  "compatibility_score_id"
+    t.index ["compatibility_score_id"], name: "index_users_on_compatibility_score_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["groups_id"], name: "index_users_on_groups_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
