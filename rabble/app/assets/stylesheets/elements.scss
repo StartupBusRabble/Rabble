@@ -25,4 +25,18 @@
     .shared-links {
       padding-top: 122px;
     }
+
+    .vertically-center {
+      display: flex;
+      align-items: center;
+      height: 50vh;
+    }
+
+    .finding-group {
+      color: #581E07;
+      font-family: Roboto;
+      font-size: 20px;
+      line-height: 24px;
+      text-align: center;
+    }
 }
