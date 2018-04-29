@@ -1,16 +1,35 @@
 <% if current_user && current_user.matched %>
   <h3>Welcome <%= current_user.email %> You've been grouped! </h3>
 
-  <h4>Your group</h4>
-  <% @matchedUsers.each do |user| %>
+  <h4>Your event</h4>
   <table>
     <tbody>
-    <tr>
-      <td><%= user.email %></td>
-    </tr>
+      <tr>
+        <td>Venue:</td>
+        <td><%= @event.venue %></td>
+      </tr>
+      <tr>
+        <td>Address:</td>
+        <td><%= @event.address %></td>
+      </tr>
+      <tr>
+        <td>Time:</td>
+        <td><%= @event.date %></td>
+      </tr>
     </tbody>
   </table>
-  <% end %>
+
+  <h4>Your group</h4>
+  <table>
+    <tbody>
+      <% @matchedUsers.each do |user| %>
+        <tr>
+          <td><%= user.email %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
 
   <div class="row">
    <div class="col-md-8">
