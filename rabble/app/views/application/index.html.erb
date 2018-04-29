@@ -1,8 +1,11 @@
-<% if current_user %>
-  Hello <%= current_user.email %>
-  <%= button_to "signout" ,destroy_user_session_url, :method => :delete %>
+<% if current_user && current_user.is_user_ready_for_match && !current_user.matched %>
+  <div class="vertically-center">
+    <div class="text-center finding-group">
+      We’re building your rabble group! We’ll let you know when it’s ready
+    </div>
+  </div>
 <% else %>
-  Please login
-  <%= button_to "login", new_user_session_url, :method => :get %>
-  <%= button_to "register", new_user_registration_url, :method => :get %>
+  <div id="new-friends-are-hard" class="text-center">
+    New friends are hard to meet, we make it easy
+  </div>
 <% end %>

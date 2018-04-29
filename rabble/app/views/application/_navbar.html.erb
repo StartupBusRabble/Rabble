@@ -1,0 +1,11 @@
+<nav class="navbar">
+  <a class="navbar-brand" href="/">
+    <%= image_tag("logo", class: "navbar-brand") %>
+  </a>
+  <% if current_user %>
+    <%= link_to("Signout", destroy_user_session_url, :method => :delete) %>
+  <% else %>
+    <%= link_to("login", new_user_session_url, :method => :get) %>
+    <%= link_to("register", new_user_registration_url, :method => :get) %>
+  <% end %>
+</nav>
