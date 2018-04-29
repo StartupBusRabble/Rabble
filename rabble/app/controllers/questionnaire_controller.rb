@@ -33,16 +33,8 @@ class QuestionnaireController < ApplicationController
       store_question_and_answer(questionnaire, "Last Name", params[:last_name])
       store_question_and_answer(questionnaire, "Age", params[:age])
       store_question_and_answer(questionnaire, "Zipcode", params[:zipcode])
-      store_question_and_answer(questionnaire, "Willing to Travel Distance", params[:willing_to_travel_distance])
-      store_question_and_answer(questionnaire, "Preferred communication", params[:preferred_communication])
       store_question_and_answer(questionnaire, "Gender", params[:gender])
-      store_question_and_answer(questionnaire, "Sexual Orientation", params[:sexual_orientation])
-      store_question_and_answer(questionnaire, "Education", params[:education])
-      store_question_and_answer(questionnaire, "Occupation", params[:occupation])
-      store_question_and_answer(questionnaire, "Political Views", params[:political_views])
       store_question_and_answer(questionnaire, "Interests", params[:interests])
-      store_question_and_answer(questionnaire, "Languages", params[:languages])
-      store_question_and_answer(questionnaire, "Budget per week", params[:budget])
 
       # Meyers briggs
       store_question_and_answer(questionnaire, "I enjoy", params[:i_enjoy])
@@ -50,6 +42,14 @@ class QuestionnaireController < ApplicationController
       store_question_and_answer(questionnaire, "I make decisions using", params[:i_make_decisiongs_using])
       store_question_and_answer(questionnaire, "I would rather", params[:i_would_rather])
 
+      # Keirsey score
+      store_question_and_answer(questionnaire, "In company do you", params[:in_company_do_you])
+      store_question_and_answer(questionnaire, "Are you more likely to trust your", params[:are_you_more_likely_to_trust_your])
+      store_question_and_answer(questionnaire, "Is it harder for you to", params[:is_it_harder_for_you_to])
+      store_question_and_answer(questionnaire, "Are you more often", params[:are_you_more_often])
+      store_question_and_answer(questionnaire, "Is it worse to be", params[:is_it_worse_to_be])
+      store_question_and_answer(questionnaire, "Are you more", params[:are_you_more])
+      store_question_and_answer(questionnaire, "Are you more comfortable", params[:are_you_more_comfortable])
       current_user.update(is_user_ready_for_match: true)
       redirect_to root_url
     else
