@@ -1,5 +1,5 @@
 class QuestionnaireController < ApplicationController
-  skip_before_action :verify_authenticity_token  
+  skip_before_action :verify_authenticity_token
 
   def index
     if current_user
@@ -44,6 +44,7 @@ class QuestionnaireController < ApplicationController
       store_question_and_answer(questionnaire, "Languages", params[:languages])
       store_question_and_answer(questionnaire, "Budget per week", params[:budget])
       current_user.update(is_user_ready_for_match: true)
+      CompatibilityScoreUtil.new.calculate_for(current_user)
       redirect_to root_url
     else
       render "/"
