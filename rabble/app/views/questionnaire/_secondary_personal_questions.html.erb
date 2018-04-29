@@ -2,7 +2,8 @@
   <label for="gender">
     Gender
   </label>
-  <select class="form-control" id="gender_select" name="gender">
+  <select class="form-control" id="gender_select" name="gender" required>
+    <option>select your gender..</option>
     <option value="female">Female</option>
     <option value="male">Male</option>
     <option value="gender_fluid">Gender Fluid</option>
@@ -17,7 +18,8 @@
   <label for="sexual_orientation">
     Sexual Orientation
   </label>
-  <select class="form-control" id="sexual_orientation_select" name="sexual_orientation">
+  <select class="form-control" id="sexual_orientation_select" name="sexual_orientation" required>
+    <option>select your sexual orientation</option>
     <option value="asexual">Asexual</option>
     <option value="bisexual">Bisexual</option>
     <option value="gay_lesbian">Gay/Lesbian</option>
@@ -49,7 +51,7 @@
   <label for="occupation">
     What field do you work in?
   </label>
-  <select class="form-control" id="occupation_select" name="occupation">
+  <select class="form-control" id="occupation_select" name="occupation" required>
     <option value="architecture_planning_environmental_design">Architecture, Planning & Environmental Design</option>
     <option value="arts_entertainment">Arts & Entertainment</option>
     <option value="business">Business</option>
@@ -71,7 +73,8 @@
   <label for="political_views">
     Political views:
   </label>
-  <select class="form-control" id="political_views_select" name="political_views">
+  <select class="form-control" id="political_views_select" name="political_views" required>
+    <option>select one</option>
     <option value="democrat_liberal">Democrat/Liberal</option>
     <option value="moderate">Moderate</option>
     <option value="republican_conservative">Republican/Conservative</option>
@@ -84,13 +87,10 @@
   <label for="interests">
     Interests
   </label>
-  <div class="form-check">
-    <input name="interests" class="form-check-input" type="checkbox" id="_checkbox" value="">
-    <label class="form-check-label" for=""></label>
-  </div>
+  <input type="text" name="interests" class="form-control" id="interests_input" placeholder="What are your interests? (ex: american football, basketball)">
 </div>
 
-<div id="other_languages" class="row">
+<div id="other_languages" class="row ">
   <label for="other_languages">
     Are you fluent in, or currently learning, any other languages besides English? Please mark them below
   </label>
