@@ -2,40 +2,38 @@
   <label for="first_name">
     First Name
   </label>
-  <input type="text" name="first_name" class="form-control" id="first_name_input" placeholder="First Name">
+  <input type="text" name="first_name" class="form-control" id="first_name_input" placeholder="First Name" required>
 </div>
 
 <div class="form-group">
   <label for="last_name">
     Last Name
   </label>
-  <input type="text" name="last_name" class="form-control" id="first_name_input" placeholder="Last Name">
+  <input type="text" name="last_name" class="form-control" id="first_name_input" placeholder="Last Name" required>
 </div>
 
 <div class="form-group">
   <label for="age">
     Age
   </label>
-  <input type="number" name="age" class="form-control" id="age_input" placeholder="age">
+  <!-- <input type="number" name="age" class="form-control" id="age_input" placeholder="age" required> -->
+  <select class="form-control" id="gender_select" name="age" required>
+    <option>Select your age</option>
+    <option value="18_22">18-22</option>
+    <option value="23_27">23-27</option>
+    <option value="28_32">28-32</option>
+    <option value="33_37">33-37</option>
+    <option value="38_42">38-42</option>
+    <option value="43_47">43-47</option>
+    <option value="48_52">48-52</option>
+    <option value="53_57">53-57</option>
+    <option value="over_58">58+</option>
+  </select>
 </div>
 
 <div class="form-group">
   <label for="zipcode">
     Zipcode
   </label>
-  <input type="number" name="zipcode" class="form-control" id="zipcode_input" placeholder="zipcode">
-</div>
-
-<div class="form-group">
-  <label for="travel_radius">
-    Willing to travel radius
-  </label>
-  <input type="text" name="willing_to_travel_distance" class="form-control" id="travel_radius_input">
-</div>
-
-<div class="form-group">
-  <label for="communication">
-    Preferred method of communication with future friends:
-  </label>
-  <input type="text" name="preferred_communication" class="form-control" id="communication_input">
+  <input type="number" name="zipcode" class="form-control" id="zipcode_input" placeholder="zipcode" required>
 </div>
