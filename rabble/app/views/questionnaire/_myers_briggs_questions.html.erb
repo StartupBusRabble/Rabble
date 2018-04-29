@@ -1,0 +1,60 @@
+<div class="meyers-briggs">
+  <div>
+    <label>I enjoy:</label>
+  </div>
+  <label>Meeting new people and doing things (E)</label>
+  <% 10.times do |number| %>
+  <% number += 1 %>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" name="i_enjoy" type="checkbox" id="myers_briggs_<%= number %>" value="<%= number %>">
+      <label class="form-check-label" for="myers_briggs_<%= number %>"><%= number %></label>
+    </div>
+  <% end %>
+  <label>Ruminating over my thoughts and ideas (I)</label>
+</div>
+
+<div class="meyers-briggs">
+  <div>
+    <label>I prefer:</label>
+  </div>
+  <label>Tangible objects and valid details (S)</label>
+  <% 10.times do |number| %>
+  <% number += 1 %>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" name="i_prefer" type="checkbox" id="myers_briggs_<%= number %>" value="<%= number %>">
+      <label class="form-check-label" for="myers_briggs_<%= number %>"><%= number %></label>
+    </div>
+  <% end %>
+  <label>Abstract ideas and extrapolating patterns (N)</label>
+</div>
+
+<div class="meyers-briggs">
+  <div>
+    <label>I make decisions using:</label>
+  </div>
+  <label>Dispassionate viewpoints and logical conclusions (T)</label>
+  <% 10.times do |number| %>
+  <% number += 1 %>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" name="i_make_decisions_using" type="checkbox" id="myers_briggs_<%= number %>" value="<%= number %>">
+      <label class="form-check-label" for="myers_briggs_<%= number %>"><%= number %></label>
+    </div>
+  <% end %>
+  <label>My impressions of the issue and finding consensus among groups (F)</label>
+</div>
+
+<div class="meyers-briggs">
+  <div>
+    <label>I would rather:</label>
+  </div>
+  <label>Have a set plan (J)</label>
+  <% 10.times do |number| %>
+  <% number += 1 %>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" name="i_would_rather" type="checkbox" id="myers_briggs_<%= number %>" value="<%= number %>">
+      <label class="form-check-label" for="myers_briggs_<%= number %>"><%= number %></label>
+    </div>
+  <% end %>
+  <label>Keep my options open (P)</label>
+</div>
+
