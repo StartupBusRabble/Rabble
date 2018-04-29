@@ -30,15 +30,14 @@ $(document).ready(function() {
 
      $.post("/tokens", function(data) {
           Twilio.Chat.Client.create(data.token).then(client => {
-            client.getPublicChannelDescriptors().then(function(paginator) {
-              var channelDescriptor = paginator.items[0];
-              client.getChannelByUniqueName(channelDescriptor.uniqueName).then(function(channelObj) {
-                if(channelObj) {
-                  chatChannel = channelObj;
-                  setupChannel();
-                } else {
-                  console.error("Failed to find user's channel");
-                }
+            var channelName = $('.group_information').data('chatname');
+            client.getChannelByUniqueName(channelName).then(function(channelObj) {
+              chatChannel = channelObj;
+              setupChannel();
+            }).catch(function(err) {
+              client.createChannel({uniqueName: channelName}).then(function(newChannel) {
+                chatChannel = newChannel;
+                setupChannel();
               });
             });
           });

@@ -9,5 +9,4 @@ class GroupController < ApplicationController
     end
     render "group.html"
   end
-
 end
