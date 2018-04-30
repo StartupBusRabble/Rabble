@@ -28,6 +28,12 @@ $(document).ready(function() {
     }
   });
 
+  $("#submit-button").on('click', function(e) {
+    e.preventDefault();
+    chatChannel.sendMessage($input.val());
+    $input.val('');
+  });
+
   var channelName = $('.group_information').data('chatname');
   if (channelName !== undefined) {
     $.post("/tokens", function(data) {
