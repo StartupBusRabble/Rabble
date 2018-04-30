@@ -1,104 +1,125 @@
-<div class="keirsey-briggs">
+<div class="keirsey-briggs forum-group">
   <div>
     <label><b>In company do you</b></label>
   </div>
-  <label>initiate the conversation</label>
-  <% 10.times do |number| %>
-  <% number += 1 %>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" name="in_company_do_you" type="checkbox" id="keirsey_<%= number %>" value="<%= number %>">
-      <label class="form-check-label" for="keirsey_<%= number %>"><%= number %></label>
-    </div>
-  <% end %>
-  <label>wait to be approached</label>
+  <div class="form-check form-check-inline personality-questions">
+    <label class="form-check-label" for="keirsey-briggs-q1">
+      <input class="form-check-input" name="in_company_do_you" type="radio" id="in_company_do_you_option_1" value="initiate the conversation" required>
+        initiate the conversation
+    </label>
+  </div>
+  <div class="form-check form-check-inline personality-questions">
+    <label class="form-check-label" for="keirsey-briggs-q1">
+      <input class="form-check-input" name="in_company_do_you" type="radio" id="in_company_do_you_option_2" value="wait to be approached" required>
+      wait to be approached
+    </label>
+  </div>
 </div>
 
-<div class="keirsey-briggs">
+<div class="keirsey-briggs forum-group">
   <div>
     <label><b>Are you more likely to trust your</b></label>
   </div>
-  <label>experience</label>
-  <% 10.times do |number| %>
-  <% number += 1 %>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" name="are_you_more_likely_to_trust_your" type="checkbox" id="keirsey_<%= number %>" value="<%= number %>">
-      <label class="form-check-label" for="keirsey_<%= number %>"><%= number %></label>
-    </div>
-  <% end %>
-  <label>hunch</label>
+  <div class="form-check form-check-inline personality-questions">
+    <label class="form-check-label" for="keirsey-briggs-q2">
+      <input class="form-check-input" name="are_you_more_likely_to_trust_your" type="radio" id="are_you_more_likely_to_trust_your_option_1" value="experience" required>
+        experience
+    </label>
+  </div>
+  <div class="form-check form-check-inline personality-questions">
+    <label class="form-check-label" for="keirsey-briggs-q2">
+      <input class="form-check-input" name="are_you_more_likely_to_trust_your" type="radio" id="are_you_more_likely_to_trust_your_option_2" value="hunch" required>
+      hunch
+    </label>
+  </div>
 </div>
 
-<div class="keirsey-briggs">
+<div class="keirsey-briggs forum-group">
   <div>
     <label><b>Is it harder for you to</b></label>
   </div>
-  <label>identify with others</label>
-  <% 10.times do |number| %>
-  <% number += 1 %>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" name="is_it_harder_for_you_to" type="checkbox" id="keirsey_<%= number %>" value="<%= number %>">
-      <label class="form-check-label" for="keirsey_<%= number %>"><%= number %></label>
-    </div>
-  <% end %>
-  <label>utilize others</label>
+  <div class="form-check form-check-inline personality-questions">
+    <label class="form-check-label" for="keirsey-briggs-q3">
+      <input class="form-check-input" name="is_it_harder_for_you_to" type="radio" id="is_it_harder_for_you_to_option_1" value="identify with others" required>
+        identify with others
+    </label>
+  </div>
+  <div class="form-check form-check-inline personality-questions">
+    <label class="form-check-label" for="keirsey-briggs-q3">
+      <input class="form-check-input" name="is_it_harder_for_you_to" type="radio" id="is_it_harder_for_you_to_option_2" value="utilize others" required>
+      utilize others
+    </label>
+  </div>
 </div>
 
-<div class="keirsey-briggs">
+<div class="keirsey-briggs forum-group">
   <div>
     <label><b>Are you more often</b></label>
   </div>
-  <label>a cool-headed person</label>
-  <% 10.times do |number| %>
-  <% number += 1 %>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" name="are_you_more_often" type="checkbox" id="keirsey_<%= number %>" value="<%= number %>">
-      <label class="form-check-label" for="keirsey_<%= number %>"><%= number %></label>
-    </div>
-  <% end %>
-  <label>a warm-hearted person</label>
+  <div class="form-check form-check-inline personality-questions">
+    <label class="form-check-label" for="keirsey-briggs-q4">
+      <input class="form-check-input" name="are_you_more_often" type="radio" id="are_you_more_often_option_1" value="a cool-headed person" required>
+      a cool-headed person
+    </label>
+  </div>
+  <div class="form-check form-check-inline personality-questions">
+    <label class="form-check-label" for="keirsey-briggs-q4">
+      <input class="form-check-input" name="are_you_more_often" type="radio" id="are_you_more_often_option_2" value="a warm-hearted person" required>
+      a warm-hearted person
+    </label>
+  </div>
 </div>
 
-<div class="keirsey-briggs">
+<div class="keirsey-briggs forum-group">
   <div>
     <label><b>Is it worse to be</b></label>
   </div>
-  <label>unjust</label>
-  <% 10.times do |number| %>
-  <% number += 1 %>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" name="is_it_worse_to_be" type="checkbox" id="keirsey_<%= number %>" value="<%= number %>">
-      <label class="form-check-label" for="keirsey_<%= number %>"><%= number %></label>
-    </div>
-  <% end %>
-  <label>without mercy for others</label>
+  <div class="form-check form-check-inline personality-questions">
+    <label class="form-check-label" for="keirsey-briggs-q5">
+      <input class="form-check-input" name="is_it_worse_to_be" type="radio" id="is_it_worse_to_be_option_1" value="unjust" required>
+        unjust
+    </label>
+  </div>
+  <div class="form-check form-check-inline personality-questions">
+    <label class="form-check-label" for="keirsey-briggs-q5">
+      <input class="form-check-input" name="are_you_more_often" type="radio" id="are_you_more_often_option_2" value="without mercy for others" required>
+      without mercy for others
+    </label>
+  </div>
 </div>
 
-<div class="keirsey-briggs">
+<div class="keirsey-briggs forum-group">
   <div>
     <label><b>Are you more</b></label>
   </div>
-  <label>punctual</label>
-  <% 10.times do |number| %>
-  <% number += 1 %>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" name="are_you_more" type="checkbox" id="keirsey_<%= number %>" value="<%= number %>">
-      <label class="form-check-label" for="keirsey_<%= number %>"><%= number %></label>
-    </div>
-  <% end %>
-  <label>leisurely</label>
+  <div class="form-check form-check-inline personality-questions">
+    <label class="form-check-label" for="keirsey-briggs-q6">
+      <input class="form-check-input" name="are_you_more" type="radio" id="are_you_more_option_1" value="punctual" required>
+        punctual
+    </label>
+  </div>
+  <div class="form-check form-check-inline personality-questions">
+    <label class="form-check-label" for="keirsey-briggs-q6">
+      <input class="form-check-input" name="are_you_more" type="radio" id="are_you_more_option_2" value="leisurely" required>
+      leisurely
+    </label>
+  </div>
 </div>
 
-<div class="keirsey-briggs">
+<div class="keirsey-briggs forum-group">
   <div>
     <label><b>Are you more comfortable</b></label>
   </div>
-  <label>after a decision</label>
-  <% 10.times do |number| %>
-  <% number += 1 %>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" name="are_you_more_comfortable" type="checkbox" id="keirsey_<%= number %>" value="<%= number %>">
-      <label class="form-check-label" for="keirsey_<%= number %>"><%= number %></label>
-    </div>
-  <% end %>
-  <label>before a decision</label>
+  <div class="form-check form-check-inline personality-questions">
+    <label class="form-check-label" for="keirsey-briggs-q7">
+      <input class="form-check-input" name="are_you_more_comfortable" type="radio" id="are_you_more_option_1" value="after a decision" required>
+        after a decision
+    </label>
+  </div>
+  <div class="form-check form-check-inline personality-questions">
+    <label class="form-check-label" for="keirsey-briggs-q7">
+      <input class="form-check-input" name="are_you_more_comfortable" type="radio" id="are_you_more_option_2" value="before a decision" required>
+      before a decision
+    </label>
+  </div>
 </div>
