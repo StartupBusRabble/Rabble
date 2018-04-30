@@ -34,7 +34,7 @@ class QuestionnaireController < ApplicationController
       store_question_and_answer(questionnaire, "Age", params[:age])
       store_question_and_answer(questionnaire, "Zipcode", params[:zipcode])
       store_question_and_answer(questionnaire, "Gender", params[:gender])
-      store_question_and_answer(questionnaire, "Interests", params[:interests])
+      store_multiple_answer_to_question(questionnaire, "Interests", params[:interests])
 
       # Meyers briggs
       store_question_and_answer(questionnaire, "I enjoy", params[:i_enjoy])
@@ -61,11 +61,16 @@ class QuestionnaireController < ApplicationController
   private
   def store_question_and_answer(questionnaire, question_name, answer_value)
     if answer_value
-      question = questionnaire.questions.create!(name: question_name)
+      question = questionnaire.questions.find_or_create_by!(name: question_name)
       question.answers.create!(text: answer_value)
     else
       return true
     end
   end
 
+  def store_multiple_answer_to_question(questionnaire, question_name, answer_value)
+    answer_value.each do |interest|
+      store_question_and_answer(questionnaire, "Interests", interest)
+    end
+  end
 end

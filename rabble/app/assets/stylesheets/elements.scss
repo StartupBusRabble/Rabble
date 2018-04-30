@@ -39,4 +39,27 @@
       line-height: 24px;
       text-align: center;
     }
+
+    .form-check-inline {
+      margin: 0;
+    }
+
+  .personality-questions {
+    // width: 40%;
+
+    // input[type=radio] {
+    //   display: block;
+    //   margin: 0 auto;
+    // }
+    // label {
+    //     display: inline-block;
+    // }
+  }
+  .multiselect-container.dropdown-menu.show {
+    width: 100vw;
+  }
+
+  .navbar-brand {
+    width: 100%;
+  }
 }
