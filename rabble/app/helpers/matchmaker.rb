@@ -7,7 +7,6 @@ class Matchmaker < ApplicationController
       new_group = Group.create(chat_name: chat_channel)
       current_user.groups_id = new_group.id
       current_user.matched = true
-      puts matched_joined_users.count
       matched_joined_users.each do |matched_joined_user|
         matched_user = User.find_by(id: matched_joined_user.compared_user)
         matched_user.groups_id = new_group.id
