@@ -1,60 +1,71 @@
-<div class="meyers-briggs">
+<div class="myers-briggs form-group">
   <div>
     <label><b>I enjoy:</b></label>
   </div>
-  <label>Meeting new people and doing things</label>
-  <% 10.times do |number| %>
-  <% number += 1 %>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" name="i_enjoy" type="checkbox" id="myers_briggs_<%= number %>" value="<%= number %>">
-      <label class="form-check-label" for="myers_briggs_<%= number %>"><%= number %></label>
-    </div>
-  <% end %>
-  <label>Ruminating over my thoughts and ideas</label>
+  <div class="form-check form-check-inline personality-questions">
+    <label class="form-check-label" for="meyers-briggs-q1">
+      <input class="form-check-input orange-radiobtn" name="i_enjoy" type="radio" id="i_enjoy_option_1" value="Meeting new people and doing things" required>
+      Meeting new people and doing things
+    </label>
+  </div>
+  <div class="form-check form-check-inline personality-questions">
+    <label class="form-check-label" for="meyers-briggs-q1">
+      <input class="form-check-input orange-radiobtn" name="i_enjoy" type="radio" id="i_enjoy_option_2" value="Ruminating over my thoughts and ideas" required>
+      Ruminating over my thoughts and ideas
+    </label>
+  </div>
 </div>
 
-<div class="meyers-briggs">
+<div class="myers-briggs form-group">
   <div>
     <label><b>I prefer:</b></label>
   </div>
-  <label>Tangible objects and valid details</label>
-  <% 10.times do |number| %>
-  <% number += 1 %>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" name="i_prefer" type="checkbox" id="myers_briggs_<%= number %>" value="<%= number %>">
-      <label class="form-check-label" for="myers_briggs_<%= number %>"><%= number %></label>
-    </div>
-  <% end %>
-  <label>Abstract ideas and extrapolating patterns</label>
+  <div class="form-check form-check-inline personality-questions">
+    <label class="form-check-label" for="meyers-briggs-q2">
+      <input class="form-check-input" name="i_prefer" type="radio" id="i_prefer_option_1" value="Tangible objects and valid details" required>
+        Tangible objects and valid details
+    </label>
+  </div>
+  <div class="form-check form-check-inline personality-questions">
+    <label class="form-check-label" for="meyers-briggs-q2">
+      <input class="form-check-input" name="i_prefer" type="radio" id="i_prefer_option_2" value="Abstract ideas and extrapolating patterns" required>
+      Abstract ideas and extrapolating patterns
+    </label>
+  </div>
 </div>
 
-<div class="meyers-briggs">
+<div class="myers-briggs form-group">
   <div>
     <label><b>I make decisions using:</b></label>
   </div>
-  <label>Dispassionate viewpoints and logical conclusions</label>
-  <% 10.times do |number| %>
-  <% number += 1 %>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" name="i_make_decisions_using" type="checkbox" id="myers_briggs_<%= number %>" value="<%= number %>">
-      <label class="form-check-label" for="myers_briggs_<%= number %>"><%= number %></label>
-    </div>
-  <% end %>
-  <label>My impressions of the issue and finding consensus among groups</label>
+  <div class="form-check form-check-inline personality-questions">
+    <label class="form-check-label" for="meyers-briggs-q3">
+      <input class="form-check-input" name="i_make_decisions_using" type="radio" id="i_make_decisions_using_option_1" value="Dispassionate viewpoints and logical conclusions" required>
+      Dispassionate viewpoints and logical conclusions
+    </label>
+  </div>
+  <div class="form-check form-check-inline personality-questions">
+    <label class="form-check-label" for="meyers-briggs-q3">
+      <input class="form-check-input" name="i_make_decisions_using" type="radio" id="i_make_decisions_using_option_2" value="My impressions of the issue and finding consensus among groups" required>
+      My impressions of the issue and finding consensus among groups
+    </label>
+  </div>
 </div>
 
-<div class="meyers-briggs">
+<div class="myers-briggs form-group">
   <div>
     <label><b>I would rather:</b></label>
   </div>
-  <label>Have a set plan</label>
-  <% 10.times do |number| %>
-  <% number += 1 %>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" name="i_would_rather" type="checkbox" id="myers_briggs_<%= number %>" value="<%= number %>">
-      <label class="form-check-label" for="myers_briggs_<%= number %>"><%= number %></label>
-    </div>
-  <% end %>
-  <label>Keep my options open</label>
+  <div class="form-check form-check-inline personality-questions">
+    <label class="form-check-label" for="meyers-briggs-q4">
+      <input class="form-check-input" name="i_would_rather" type="radio" id="i_would_rather_option_1" value="Have a set plan" required>
+      Have a set plan
+    </label>
+  </div>
+  <div class="form-check form-check-inline personality-questions">
+    <label class="form-check-label" for="meyers-briggs-q4">
+      <input class="form-check-input" name="i_make_decisions_using" type="radio" id="i_would_rather_option_2" value="Keep my options open" required>
+      Keep my options open
+    </label>
+  </div>
 </div>
-
