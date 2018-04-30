@@ -4,7 +4,23 @@
   <h3>Welcome <%= current_user.email %> You've been grouped! </h3>
 
   <h4>Your event</h4>
-
+  <table>
+    <tbody>
+      <tr>
+        <td>Venue:</td>
+        <td><%= @event.venue %></td>
+      </tr>
+      <tr>
+        <td>Address:</td>
+        <td><%= @event.address %></td>
+      </tr>
+      <tr>
+        <td>Time:</td>
+        <td><%= @event.date %></td>
+      </tr>
+    </tbody>
+  </table>
+  
   <h4>Your group</h4>
   <table>
     <tbody>
@@ -24,9 +40,5 @@
    </div>
   </div>
 <% else %>
-  <div class="vertically-center">
-    <div class="text-center finding-group">
-      We're still working to find your new friends...hang tight!
-    </div>
-  </div>
+  <h3>We're still working to find your new friends...hang tight!</h3>
 <% end %>
