@@ -52,6 +52,7 @@ class QuestionnaireController < ApplicationController
       store_question_and_answer(questionnaire, "Are you more comfortable", params[:are_you_more_comfortable])
       current_user.update(is_user_ready_for_match: true)
       CompatibilityScoreUtil.new.calculate_for(current_user)
+      Matchmaker.new.match_users_based_on(current_user)
       redirect_to root_url
     else
       render "/"
