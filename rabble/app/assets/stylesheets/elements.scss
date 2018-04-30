@@ -58,15 +58,16 @@
     display: inline;
   }
 
+  .title {
+    padding-top: 15px;
+  }
+
   .event-details {
     background-color: #FFF177;
     justify-content: center;
     .date {
       padding-top: 15px;
       padding-bottom: 15px;
-    }
-    .title {
-      padding-top: 15px;
     }
   }
 
