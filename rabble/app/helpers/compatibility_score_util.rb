@@ -66,7 +66,7 @@ class CompatibilityScoreUtil < ApplicationController
 
   def calculate_for(user)
     User.all.where(matched: false).each do |other|
-      next if user == other
+      next if user == other || other.is_user_ready_for_match == false
       score = calculate_score_between(user, other)
       store_score_between_users(user, other, score)
       puts user.email + "->" + other.email + " = " + score.to_s
