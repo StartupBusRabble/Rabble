@@ -17,9 +17,9 @@
       <div class="name bold">
         <%= user.get_single_answer("First Name") + " " + user.get_single_answer("Last Name")[0] %>
       </div>
-      <div>
+      <div class="interests">
         <% user.get_all_answers("Interests").each do |interest| %>
-          <%= interest.text %>
+          <span class="interest"><%= interest.text %></span>
         <% end %>
       </div>
     </div>

@@ -65,6 +65,8 @@
   .event-details {
     background-color: #FFF177;
     justify-content: center;
+    margin-top: 10px;
+
     .date {
       padding-top: 15px;
       padding-bottom: 15px;
@@ -76,6 +78,12 @@
     .group-member {
       padding-top: 10px;
       padding-bottom: 10px;
+    }
+  }
+
+  .interests {
+    .interest:not(:last-child):after {
+      content: ","
     }
   }
 
