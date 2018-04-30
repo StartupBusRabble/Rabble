@@ -12,7 +12,12 @@ class GroupController < ApplicationController
 
   def show
     @groupChatName = Group.find_by(id: params[:id]).chat_name
+    @userEmailToName = Hash.new
+    User.where(groups_id: current_user.groups_id).each do |u|
+      @userEmailToName[u.email] =
+        u.get_single_answer("First Name") + " " +
+        u.get_single_answer("Last Name")[0]
+    end
     render "show.html"
   end
-
 end

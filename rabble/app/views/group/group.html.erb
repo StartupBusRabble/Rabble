@@ -1,11 +1,9 @@
 <% if current_user && current_user.matched %>
-  <%= content_tag :div, class: "group_information", data: {chatName: @group.chat_name} do %>
-<% end %>
 <div class="row event-details">
   <div class="text-center bold col-12 title">Meet your rabble group!</div>
   <div class="text-center col-12">
     You are meeting at <%= @event.venue %>
-  </div>
+</div>
   <div class="text-center col-12">
     <%= @event.address %>
   </div>
@@ -17,7 +15,7 @@
   <% @matchedUsers.each do |user| %>
     <div class="col-md-12 group-member">
       <div class="name bold">
-        <%= user.get_single_answer("First Name") %>
+        <%= user.get_single_answer("First Name") + " " + user.get_single_answer("Last Name")[0] %>
       </div>
       <div>
         <% user.get_all_answers("Interests").each do |interest| %>

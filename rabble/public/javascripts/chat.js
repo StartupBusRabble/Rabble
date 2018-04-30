@@ -1,10 +1,13 @@
+var userEmailToName;
+
 function printMessage(message) {
-  var messageString = message.author + ": " + message.body;
+  var messageString = userEmailToName[message.author] + ": " + message.body;
   $('#messages').append(messageString + "<br>");
 }
 
 $(document).ready(function() {
   var chatChannel;
+  userEmailToName = $('.group_information').data('useremailtoname');
 
   function setupChannel() {
     chatChannel.join().catch(function(err) {
@@ -38,7 +41,6 @@ $(document).ready(function() {
   if (channelName !== undefined) {
     $.post("/tokens", function(data) {
       Twilio.Chat.Client.create(data.token).then(client => {
-        var channelName = $('.group_information').data('chatname');
         client.getChannelByUniqueName(channelName.toString()).then(function(channelObj) {
           chatChannel = channelObj;
           setupChannel();

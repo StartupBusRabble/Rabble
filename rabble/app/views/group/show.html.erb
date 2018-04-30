@@ -1,5 +1,6 @@
 <% if current_user && current_user.matched %>
-  <%= content_tag :div, class: "group_information", data: {chatName: @groupChatName} do %>
+<%= content_tag :div, class: "group_information",
+  data: {chatName: @groupChatName, userEmailToName: @userEmailToName} do %>
 <% end %>
   <div class="row">
    <div class="col-md-8">
