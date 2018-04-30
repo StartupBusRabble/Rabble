@@ -1,7 +1,10 @@
 <% if current_user && current_user.matched %>
   <%= content_tag :div, class: "group_information", data: {chatName: @chatName} do %>
   <% end %>
-  <h3>Welcome <%= current_user.email %> You've been grouped! </h3>
+  <div>
+    <!-- Welcome <%= current_user.email %> You've been grouped! -->
+    You've been grouped!
+  </h3>
 
   <h4>Your event</h4>
   <table>
@@ -20,7 +23,7 @@
       </tr>
     </tbody>
   </table>
-  
+
   <h4>Your group</h4>
   <table>
     <tbody>
