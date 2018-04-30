@@ -102,7 +102,7 @@ class CompatibilityScoreUtil < ApplicationController
       return ktp_intersection.count
     end
 
-    return -100
+    return -1
   end
 
   def fetch_ktp_answers_for(user)
@@ -127,7 +127,7 @@ class CompatibilityScoreUtil < ApplicationController
       return interest_intersection.count
     end
 
-    return -100
+    return 0
   end
 
   def fetch_interest_answers_for(user)

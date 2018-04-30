@@ -18,6 +18,11 @@ class GroupController < ApplicationController
         u.get_single_answer("First Name") + " " +
         u.get_single_answer("Last Name")[0]
     end
-    render "show.html"
+
+    if current_user.groups_id == params[:id].to_i
+      render "show.html"
+    else
+      redirect_to root_url
+    end
   end
 end
