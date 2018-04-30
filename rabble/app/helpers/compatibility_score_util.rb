@@ -22,6 +22,48 @@ class CompatibilityScoreUtil < ApplicationController
     "ESTJ" => ["INTP", "ISFP", "ISTP", "ISFJ", "ESFJ", "ISTJ", "ESTJ"],
   ]
 
+  KTP_ANSWER_LIST = [
+    "initiate the conversation",
+    "wait to be approached",
+    "experience",
+    "hunch",
+    "identify with others",
+    "utilize others",
+    "a cool-headed person",
+    "a warm-hearted person",
+    "unjust",
+    "without mercy for others",
+    "punctual",
+    "leisurely",
+    "after a decision",
+    "before a decision"
+  ]
+
+  INTEREST_ANSWER_LIST = [
+    "Outdoors & Adventure",
+    "Technology",
+    "Family",
+    "health & wellness",
+    "Sports & Fitness",
+    "Learning",
+    "Photography",
+    "Food & Drink",
+    "Writing",
+    "Language & Culture",
+    "Music",
+    "Movements",
+    "LGBTQ",
+    "Film",
+    "SciFi & Games",
+    "Book Clubs",
+    "Dance",
+    "Pets",
+    "Hobbies & Crafts",
+    "Fashion & Beauty",
+    "Social",
+    "Career & Business"
+  ]
+
   def calculate_for(user)
     User.all.where(matched: false).each do |other|
       next if user == other
@@ -51,13 +93,53 @@ class CompatibilityScoreUtil < ApplicationController
   end
 
   def calculate_ktp_score(user1, user2)
-    # TODO
-    return 2
+    user1_answers = fetch_ktp_answers_for(user1)
+    user2_answers = fetch_ktp_answers_for(user2)
+
+    ktp_intersection = user1_answers & user2_answers
+
+    if ktp_intersection.count > 0
+      return ktp_intersection.count
+    end
+
+    return -100
+  end
+
+  def fetch_ktp_answers_for(user)
+    ktp_answers = []
+    user.questionnaires.first.questions.find_each do |question|
+      answer_text = question.answers.where('text IN (?)', KTP_ANSWER_LIST).first&.text
+      if answer_text
+        ktp_answers.push(answer_text)
+      end
+    end
+
+    return ktp_answers
   end
 
   def calculate_interest_score(user1, user2)
-    # TODO
-    return 3
+    user1_answers = fetch_interest_answers_for(user1)
+    user2_answers = fetch_interest_answers_for(user2)
+
+    interest_intersection = user1_answers & user2_answers
+
+    if interest_intersection.count > 0
+      return interest_intersection.count
+    end
+
+    return -100
+  end
+
+  def fetch_interest_answers_for(user)
+    interest_answers = []
+    user.questionnaires.first.questions.find_each do |question|
+      answer_text = question.answers.where('text IN (?)', INTEREST_ANSWER_LIST).first&.text
+      if answer_text
+        interest_answers.push(answer_text)
+      end
+    end
+
+    return interest_answers
   end
 
   def store_score_between_users(user1, user2, score)
