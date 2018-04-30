@@ -4,42 +4,45 @@ function printMessage(message) {
 }
 
 $(document).ready(function() {
-    var chatChannel;
+  var chatChannel;
 
-    function setupChannel() {
-        chatChannel.join().catch(function(err) {
-          console.error("Failed to join channel " + chatChannel.uniqueName + " because " + err);
-        });
-        chatChannel.getMessages().then(function(messages) {
-          for (i=0; i<messages.items.length; i++) {
-            printMessage(messages.items[i]);
-          }
-        });
-        chatChannel.on('messageAdded', function(message) {
-            printMessage(message);
-         });
-    }
-
-    var $input = $('#chat-input');
-    $input.on('keydown', function(e) {
-        if (e.keyCode == 13) {
-            chatChannel.sendMessage($input.val());
-            $input.val('');
-        }
+  function setupChannel() {
+    chatChannel.join().catch(function(err) {
+      console.error("Failed to join channel " + chatChannel.uniqueName + " because " + err);
+    });
+    chatChannel.getMessages().then(function(messages) {
+      for (i=0; i<messages.items.length; i++) {
+        printMessage(messages.items[i]);
+      }
+    });
+    chatChannel.on('messageAdded', function(message) {
+        printMessage(message);
      });
+  }
 
-     $.post("/tokens", function(data) {
-          Twilio.Chat.Client.create(data.token).then(client => {
-            var channelName = $('.group_information').data('chatname');
-            client.getChannelByUniqueName(channelName).then(function(channelObj) {
-              chatChannel = channelObj;
-              setupChannel();
-            }).catch(function(err) {
-              client.createChannel({uniqueName: channelName}).then(function(newChannel) {
-                chatChannel = newChannel;
-                setupChannel();
-              });
-            });
+  var $input = $('#chat-input');
+  $input.on('keydown', function(e) {
+    if (e.keyCode == 13) {
+      chatChannel.sendMessage($input.val());
+      $input.val('');
+    }
+  });
+
+  var channelName = $('.group_information').data('chatname');
+  if (channelName !== undefined) {
+    $.post("/tokens", function(data) {
+      Twilio.Chat.Client.create(data.token).then(client => {
+        var channelName = $('.group_information').data('chatname');
+        client.getChannelByUniqueName(channelName.toString()).then(function(channelObj) {
+          chatChannel = channelObj;
+          setupChannel();
+        }).catch(function(err) {
+          client.createChannel({uniqueName: channelName}).then(function(newChannel) {
+            chatChannel = newChannel;
+            setupChannel();
           });
+        });
       });
+    });
+  }
 });
