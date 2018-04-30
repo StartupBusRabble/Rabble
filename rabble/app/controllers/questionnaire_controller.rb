@@ -50,6 +50,7 @@ class QuestionnaireController < ApplicationController
       store_question_and_answer(questionnaire, "Is it worse to be", params[:is_it_worse_to_be])
       store_question_and_answer(questionnaire, "Are you more", params[:are_you_more])
       store_question_and_answer(questionnaire, "Are you more comfortable", params[:are_you_more_comfortable])
+      current_user.update(mb_value: calculate_mb_value(params))
       current_user.update(is_user_ready_for_match: true)
       CompatibilityScoreUtil.new.calculate_for(current_user)
       Matchmaker.new.match_users_based_on(current_user)
@@ -60,6 +61,35 @@ class QuestionnaireController < ApplicationController
   end
 
   private
+  def calculate_mb_value(params)
+    mb_value = ""
+    if params[:i_enjoy] == "Meeting new people and doing things"
+      mb_value << "E"
+    else
+      mb_value << "I"
+    end
+
+    if i_prefer = params[:i_prefer] == "Tangible objects and valid details"
+      mb_value << "S"
+    else
+      mb_value << "N"
+    end
+
+    if params[:i_make_decisions_using] == "Dispassionate viewpoints and logical conclusions"
+      mb_value << "T"
+    else
+      mb_value << "F"
+    end
+
+    if params[:i_would_rather] == "Have a set plan"
+      mb_value << "J"
+    else
+      mb_value << "P"
+    end
+
+    return mb_value
+  end
+
   def store_question_and_answer(questionnaire, question_name, answer_value)
     if answer_value
       question = questionnaire.questions.find_or_create_by!(name: question_name)
