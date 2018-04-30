@@ -1,42 +1,35 @@
 <% if current_user && current_user.matched %>
-  <%= content_tag :div, class: "group_information", data: {chatName: @chatName} do %>
+  <%= content_tag :div, class: "group_information", data: {chatName: @group.chat_name} do %>
 <% end %>
-  <h4>Your event</h4>
-  <table>
-    <tbody>
-      <tr>
-        <td>Venue:</td>
-        <td><%= @event.venue %></td>
-      </tr>
-      <tr>
-        <td>Address:</td>
-        <td><%= @event.address %></td>
-      </tr>
-      <tr>
-        <td>Time:</td>
-        <td><%= @event.date %></td>
-      </tr>
-    </tbody>
-  </table>
-
-  <h4>Your group</h4>
-  <table>
-    <tbody>
-      <% @matchedUsers.each do |user| %>
-        <tr>
-          <td><%= user.email %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-
-  <div class="row">
-   <div class="col-md-8">
-     <div id="messages"></div>
-     <input id="chat-input" class="form-control" type="text" placeholder="say anything" autofocus/>
-   </div>
+<div class="row event-details">
+  <div class="text-center bold col-12 title">Meet your rabble group!</div>
+  <div class="text-center col-12">
+    You are meeting at <%= @event.venue %>
   </div>
+  <div class="text-center col-12">
+    <%= @event.address %>
+  </div>
+  <div class="text-center col-12 date">
+    <%= @event.date %>
+  </div>
+</div>
+<div class="row group-details">
+  <% @matchedUsers.each do |user| %>
+    <div class="col-md-12 group-member">
+      <div class="name bold">
+        <%= user.get_single_answer("First Name") %>
+      </div>
+      <div>
+        <% user.get_all_answers("Interests").each do |interest| %>
+          <%= interest.text %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="go-to-chat">
+  <%= button_to "Chat", group_url(id: @group.id), method: :get, class: "yellow-button" %>
+</div>
 <% else %>
   <div class="vertically-center">
     <div id="new-friends-are-hard" class="text-center">

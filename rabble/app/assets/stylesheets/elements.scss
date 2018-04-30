@@ -45,22 +45,40 @@
       margin: 0;
     }
 
-  .personality-questions {
-    // width: 40%;
-
-    // input[type=radio] {
-    //   display: block;
-    //   margin: 0 auto;
-    // }
-    // label {
-    //     display: inline-block;
-    // }
-  }
   .multiselect-container.dropdown-menu.show {
     width: 100vw;
   }
 
   .navbar-brand {
     width: 100%;
+  }
+
+  #chat-input {
+    width: 80%;
+    display: inline;
+  }
+
+  .event-details {
+    background-color: #FFF177;
+    justify-content: center;
+    .date {
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+    .title {
+      padding-top: 15px;
+    }
+  }
+
+  .group-details {
+    padding-top: 30px;
+    .group-member {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+  }
+
+  .bold {
+    font-weight: bold;
   }
 }
