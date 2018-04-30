@@ -43,19 +43,11 @@ class CompatibilityScoreUtil < ApplicationController
   end
 
   def calculate_mb_score(user1, user2)
-    user1_mb = determine_user_mb(user1)
-    user2_mb = determine_user_mb(user2)
-
-    if MB_COMPATIBILITY_MAP[user1_mb].include? user2_mb
+    if MB_COMPATIBILITY_MAP[user1.mb_value].include? user2.mb_value
       return 1
     end
 
     return -100
-  end
-
-  def determine_user_mb(user)
-    # TODO
-    return 'INFP'
   end
 
   def calculate_ktp_score(user1, user2)

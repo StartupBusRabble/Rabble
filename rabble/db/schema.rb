@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180429234240) do
+ActiveRecord::Schema.define(version: 20180430122410) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "text",        null: false
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20180429234240) do
     t.boolean  "matched",                 default: false, null: false
     t.integer  "groups_id"
     t.integer  "compatibility_score_id"
+    t.string   "mb_value"
     t.index ["compatibility_score_id"], name: "index_users_on_compatibility_score_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["groups_id"], name: "index_users_on_groups_id"
