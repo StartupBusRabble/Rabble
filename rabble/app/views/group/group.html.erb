@@ -1,33 +1,33 @@
 <% if current_user && current_user.matched %>
-<div class="row event-details">
-  <div class="text-center bold col-12 title">Meet your rabble group!</div>
-  <div class="text-center col-12">
-    You are meeting at <%= @event.venue %>
-</div>
-  <div class="text-center col-12">
-    <%= @event.address %>
+  <div class="row event-details">
+    <div class="text-center bold col-12 title">Meet your rabble group!</div>
+    <div class="text-center col-12">
+      You are meeting at <%= @event.venue %>
   </div>
-  <div class="text-center col-12 date">
-    <%= @event.date %>
-  </div>
-</div>
-<div class="row group-details">
-  <% @matchedUsers.each do |user| %>
-    <div class="col-md-12 group-member">
-      <div class="name bold">
-        <%= user.get_single_answer("First Name") + " " + user.get_single_answer("Last Name")[0] %>
-      </div>
-      <div class="interests">
-        <% user.get_all_answers("Interests").each do |interest| %>
-          <span class="interest"><%= interest.text %></span>
-        <% end %>
-      </div>
+    <div class="text-center col-12">
+      <%= @event.address %>
     </div>
-  <% end %>
-</div>
-<div class="go-to-chat">
-  <%= button_to "Chat", group_url(id: @group.id), method: :get, class: "yellow-button" %>
-</div>
+    <div class="text-center col-12 date">
+      <%= @event.date %>
+    </div>
+  </div>
+  <div class="row group-details">
+    <% @matchedUsers.each do |user| %>
+      <div class="col-md-12 group-member">
+        <div class="name bold">
+          <%= user.get_single_answer("First Name") + " " + user.get_single_answer("Last Name")[0] %>
+        </div>
+        <div class="interests">
+          <% user.get_all_answers("Interests").each do |interest| %>
+            <span class="interest"><%= interest.text %></span>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="go-to-chat">
+    <%= button_to "Chat", group_url(id: @group.id), method: :get, class: "yellow-button" %>
+  </div>
 <% else %>
   <div class="vertically-center">
     <div id="new-friends-are-hard" class="text-center">

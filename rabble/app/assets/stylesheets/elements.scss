@@ -90,4 +90,18 @@
   .bold {
     font-weight: bold;
   }
+
+  .group-chat-container {
+    margin-top: 10px;
+    #messages {
+      padding: 10px;
+    }
+    .send-message-container {
+      padding-top: 5px;
+      #submit-button {
+        background-color: #FFAC03;
+        border-color: #FFAC03;
+      }
+    }
+  }
 }

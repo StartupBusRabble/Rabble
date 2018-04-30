@@ -2,11 +2,13 @@
 <%= content_tag :div, class: "group_information",
   data: {chatName: @groupChatName, userEmailToName: @userEmailToName} do %>
 <% end %>
-  <div class="row">
-   <div class="col-md-8">
+  <div class="row group-chat-container">
+   <div class="col-md-12">
      <div id="messages"></div>
-     <input id="chat-input" class="form-control" type="text" placeholder="say anything" autofocus/>
-     <button type="submit" id="submit-button" class="btn btn-primary mb-2">Send</button>
+     <div class="send-message-container">
+       <input id="chat-input" class="form-control" type="text" placeholder="say anything" autofocus/>
+       <button type="submit" id="submit-button" class="btn btn-primary mb-1">Send</button>
+     </div>
    </div>
   </div>
 <% end %>
